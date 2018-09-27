@@ -65,7 +65,7 @@ podTemplate(label: label,
             withEnv(['VERSION=' + env.version.trim(), 'COMMIT=' + env.commit.trim()]) {
               sh """
                 helm upgrade --install keren-first-app \
-                  --keren production \
+                  --namespace keren \
                   --set image.repository=kerenb/first-app \
                   --set image.tag=${VERSION}.${COMMIT} \
                   --set ingress.enabled=true \
